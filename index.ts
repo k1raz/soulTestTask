@@ -1,9 +1,5 @@
-import { BaseEventHandler } from '../../../../shared/BaseEvents/BaseEventHandler';
-import { BaseDevCommand } from '../../utils/devTools/BaseDevCommand';
 import { ModType } from './ModTypes';
 import { TunningModel } from './TuneModel';
-import { CommandManager } from '../../Commands/CommandManager';
-import { number } from 'mathjs';
 
 export class Tunning {
     constructor() {
@@ -13,7 +9,7 @@ export class Tunning {
         });
     }
 
-    public createVehicle(player: PlayerMp, vehName: string): void {
+    private createVehicle(player: PlayerMp, vehName: string): void {
         mp.vehicles.new(mp.joaat(vehName), player.position, {
             engine: true,
             numberPlate: `${player.name}`,
@@ -23,7 +19,7 @@ export class Tunning {
 
     }
 
-    public tunning(player: PlayerMp, fulltext: string): void {
+    private tunning(player: PlayerMp, fulltext: string): void {
         if (!player.vehicle)
             return;
 
